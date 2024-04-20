@@ -272,7 +272,7 @@ let addData =
  { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
 
 console.log(`****************************************`)
-console.log(`**  Incrementing Age the same Object  **`)
+console.log(`**           Adding age and date      **`)
 console.log(`****************************************`) 
 
 addData.map(function(person){
@@ -296,10 +296,24 @@ console.log(`****************************************`)
 // console.log(`**  Incrementing Age in a new Object  **`)
 // console.log(`****************************************`) 
 
-// const newAddData = addData.map(copyObject)
+
+ const newAddData = structuredClone(addData)
+ newAddData.map(function(person){
+ 
+  if(typeof(person.age)!='undefined'){
+    person.age++
+  }
+  else{
+   person.age=0
+  }
+
+  if(typeof(person.age)=='undefined'){
+    person.updated_at=new Date()
+   }
+  //person.updated_at= new Date("October 13, 2014 11:13:00")
+})
 
 
-
-// console.log(newAddData)
+ console.log(newAddData)
 
 
